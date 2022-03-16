@@ -1,0 +1,39 @@
+{
+  "name": "prisma-3.11-demo",
+  "version": "1.0.0",
+  "description": "Example for Prisma 3.11 release demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec 'node -r @swc-node/register' src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hayes/prisma-3.11-demo.git"
+  },
+  "author": "Michael Hayes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hayes/prisma-3.11-demo/issues"
+  },
+  "prisma": {
+    "seed": "node -r @swc-node/register prisma/seed.ts"
+  },
+  "homepage": "https://github.com/hayes/prisma-3.11-demo#readme",
+  "dependencies": {
+    "@graphql-yoga/node": "^0.1.0-beta.4",
+    "@pothos/core": "^3.3.3",
+    "@pothos/plugin-prisma": "^3.0.0",
+    "@pothos/plugin-relay": "^3.5.2",
+    "@prisma/client": "^3.11.0",
+    "graphql": "^16.3.0",
+    "graphql-scalars": "^1.15.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^6.0.0",
+    "@swc-node/register": "^1.4.2",
+    "nodemon": "^2.0.15",
+    "prisma": "^3.11.0",
+    "typescript": "^4.6.2"
+  }
+}
