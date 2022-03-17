@@ -16,16 +16,16 @@ model User {
   firstName String
   lastName  String
 
-  profile   Profile @relation(fields: [profileId], references: [id])
-  profileId Int
+  profile Profile @relation(fields: [profileId], references: [id])
 
-  posts    Post[]
-  comments Comment[]
+  posts     Post[]
+  comments  Comment[]
+  profileId Int       @unique
 }
 
 model Profile {
-  id   Int    @id @default(autoincrement())
-  User User[]
+  id   Int   @id @default(autoincrement())
+  user User?
 
   bio     String
   email   String?

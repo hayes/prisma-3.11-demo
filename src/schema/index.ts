@@ -3,15 +3,20 @@ import { resolve } from 'path';
 import { printSchema } from 'graphql';
 import { builder } from '../builder';
 
-// import './example/prisma-objects';
 // import './example/simple-types';
-// import './example/relay';
 
 // builder.prismaObject('User', {
 //   findUnique: ({ id }) => ({ id }),
 //   fields: (t) => ({
-//     id: t.exposeID('id'),
-//     title: t.exposeString('firstName'),
+//     firstName: t.exposeString('firstName'),
+//   }),
+// });
+
+// builder.prismaObject('Post', {
+//   findUnique: ({ id }) => ({ id }),
+//   fields: (t) => ({
+//     title: t.exposeString('title'),
+//     content: t.exposeString('content'),
 //   }),
 // });
 
@@ -19,7 +24,7 @@ builder.queryType({
   fields: (t) => ({
     hello: t.string({
       args: {
-        name: t.arg.string(),
+        name: t.arg.string({}),
       },
       resolve: (source, args) => `Hello, ${args.name ?? 'World!'}`,
     }),

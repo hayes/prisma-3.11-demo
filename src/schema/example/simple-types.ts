@@ -21,17 +21,11 @@ PostObject.implement({
     content: t.exposeString('content'),
     author: t.field({
       type: UserObject,
-      resolve: async (post) => {
-        await Promise.resolve();
-
-        const { author } = await db.post.findUnique({
-          where: { id: post.id },
+      resolve: async (post) =>
+        db.user.findUnique({
+          where: { id: post.authorId },
           rejectOnNotFound: true,
-          include: { author: true },
-        });
-
-        return author;
-      },
+        }),
     }),
   }),
 });
